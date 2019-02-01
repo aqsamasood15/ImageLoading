@@ -27,8 +27,8 @@ public final class Cache<K: Hashable, V: InUseReporting> {
 	public init() {
 		let nc = NotificationCenter.default
 		let purgingNotificationNames = [
-			NSNotification.Name.UIApplicationDidEnterBackground,
-			NSNotification.Name.UIApplicationDidReceiveMemoryWarning]
+			UIApplication.didEnterBackgroundNotification,
+			UIApplication.didReceiveMemoryWarningNotification]
 		for name in purgingNotificationNames {
 			self.notificationObservers.append(
 				nc.addObserver(forName: name, object: nil, queue: .main) {
